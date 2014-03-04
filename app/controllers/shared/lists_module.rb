@@ -408,6 +408,7 @@ module Shared::ListsModule
       @unpaginated_listed_taxa = @unpaginated_listed_taxa.filter_by_taxon(@filter_taxon.id, self_and_ancestor_ids)
     end
     
+    params[:taxonomic_status] = params[:taxonomic_status] ? params[:taxonomic_status] : "active"
     if filter_by_iconic_taxon? && (params[:taxonomic_status] != "all")
       apply_iconic_taxon_and_taxonomic_status_filters
     elsif filter_by_iconic_taxon?
